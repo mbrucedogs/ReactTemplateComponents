@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Components from "./components.js";
+import { Components, registerComponent } from "./components.js";
+import Foo from "./components/Foo";
 
 import "./styles.css";
 
@@ -27,10 +28,11 @@ const data = {
 };
 
 function App() {
+  registerComponent("foo", Foo);
   return (
     <div className="App">
       <h1>Hello React</h1>
-      {data.content.body.map(block => Components(block))}
+      {data.content.body.map((block) => Components(block))}
     </div>
   );
 }
